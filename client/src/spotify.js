@@ -137,8 +137,7 @@ function makeid(length) {
   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
   for ( var i = 0; i < length; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * 
-  charactersLength));
+    result = characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
@@ -172,7 +171,7 @@ export const generateRandomPlaylist = (randomGenre, randomYearRange, descYearRan
                 axios.post(`/playlists/${playlistID}/tracks?uris=${allURIs}`);
             });
             } else {
-              const randomOffset = Math.floor(Math.random() * 1000);
+              const randomOffset = Math.floor(Math.random() * 100) + 900;
               axios.get(`/search?type=track&q=year:${randomYearRange}&offset=${randomOffset}`).then(res => {
                 let tracks = res.data.tracks.items;
                 console.log(tracks);
