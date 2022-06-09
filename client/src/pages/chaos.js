@@ -15,10 +15,10 @@ useEffect(() => {
         let genreList = data.genres;
 
         const { data2 } = await getTopArtists();
-        setSeedArtists(data2.items);
+        setSeedArtists(data2.data.items);
 
         const { data3 } = await getTopTracks();
-        setSeedTracks(data3.items);
+        setSeedTracks(data3.data.items);
 
         //pick random seed
         let randomGenre = []
