@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { Login, Profile, Results, Playlist } from './pages';
+import { Login, Profile, Results, Playlist, Chaos } from './pages';
 import './App.css';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -126,6 +126,8 @@ function App() {
               <Route path="/results" element={<Results/>}>
               </Route>
               <Route path="/playlist" element={<Playlist/>}>
+              </Route>
+              <Route path="/chaos" element={<Chaos/>}>
               </Route>
             </Routes>
           </Router>

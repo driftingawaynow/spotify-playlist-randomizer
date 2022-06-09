@@ -192,4 +192,39 @@ export const generateRandomPlaylist = (randomGenre, randomYearRange, descYearRan
 
 export const getRandomGenre = () => axios.get('/recommendations/available-genre-seeds');
 
+export const getTopArtists = () => axios.get('/me/top/artists?limit=5');
+
+export const getTopTracks = () => axios.get('/me/top/tracks?limit=5');
+
+export const chaosLoop = (seed_artists, seed_genres, seed_tracks) => 
+axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&limit=5`);
+
+export const getRecommendations = (seed_artists, seed_genres, seed_tracks) => axios.get('/me').then(res => {
+  let userID = res.data.id;
+  console.log(userID);
+      // create playlist
+      axios.post(`/users/${userID}/playlists`, {
+          name: "CHAOS!",
+          public: false,
+          description: "FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN"
+      }).then(res => { 
+          let playlistID = res.data.id; // get playlist ID
+          //find recommendations
+          axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}`).then(res => {
+              let tracks = res.data.tracks;
+              console.log(tracks);
+
+              let allURIs = "";
+              for (let i = 0; i < tracks.length; i++) {
+                  allURIs = allURIs + tracks[i].uri + "%2C";
+              }
+              allURIs = allURIs.slice(0, -3) //remove last comma
+              allURIs = allURIs.replace(/:/g,"%3A");
+              console.log(allURIs);
+
+              axios.post(`/playlists/${playlistID}/tracks?uris=${allURIs}`);
+          });
+      });
+    });
+
 

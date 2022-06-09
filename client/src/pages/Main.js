@@ -29,6 +29,9 @@ const Profile = () => {
           <Link to="/results" >
             <button>Generate</button>
           </Link>
+          <Link to="/chaos" >
+            <button>Chaos Mode</button>
+          </Link>
         </>
       )}
     </>
