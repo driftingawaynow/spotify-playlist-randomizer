@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+  z-index: 1;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #073134;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  z-index: 1;
+}
+
+.App-link {
+  display:inline-block;
+  padding:1em 3em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  font-size: .8em;
+  background-color:#FFFFFF;
+  z-index: 1;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App-link:hover {
+  color:#000000;
+  background-color:#1dcf2f;
+}
+
+button {
+  display:inline-block;
+  padding:1em 3em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  font-size: .8em;
+  z-index: 1;
+}
+button:hover {
+  color:#000000;
+  background-color:#1dcf2f;
+}
+@media all and (max-width:30em) {
+  a.button1{
+    display:block;
+    margin:0.4em auto;
+    z-index: 1;
+  }
+}
+
+.logout {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: .5em;
+  z-index: 1;
+}
+
+p {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-size: .5em;
+}
+
+.resultsButton {
+  font-size: .8em;
+  z-index: 1;
+}
+#container{
+  text-align: center;
+  z-index: 1;
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  z-index: 1;
+}
+
