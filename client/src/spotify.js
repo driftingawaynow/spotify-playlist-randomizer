@@ -200,10 +200,10 @@ export const getTopTracks = () => {
   return axios.get('/me/top/tracks?limit=5');
 }
 
-export const chaosLoop = (seed_artists, seed_genres, seed_tracks) => 
-axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&limit=5`);
+export const chaosLoop = (seed_artists, seed_genres, seed_tracks, target_popularity, target_tempo) => 
+axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&limit=20&target_popularity=${target_popularity}&target_tempo=${target_tempo}`);
 
-export const getRecommendations = (seed_artists, seed_genres, seed_tracks) => axios.get('/me').then(res => {
+export const getRecommendations = (seed_artists, seed_genres, seed_tracks, target_popularity) => axios.get('/me').then(res => {
   let userID = res.data.id;
   console.log(userID);
       // create playlist
@@ -214,7 +214,7 @@ export const getRecommendations = (seed_artists, seed_genres, seed_tracks) => ax
       }).then(res => { 
           let playlistID = res.data.id; // get playlist ID
           //find recommendations
-          axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}`).then(res => {
+          axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&target_popularity=${target_popularity}`).then(res => {
               let tracks = res.data.tracks;
               console.log(tracks);
 
@@ -230,5 +230,13 @@ export const getRecommendations = (seed_artists, seed_genres, seed_tracks) => ax
           });
       });
     });
+
+export const createPlaylist = (userID) => axios.post(`/users/${userID}/playlists`, {
+    name: "CHAOS!",
+    public: false,
+    description: "FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN"
+});
+
+export const addSongToPlaylist = (playlistID, trackURI) => axios.post(`/playlists/${playlistID}/tracks?uris=${trackURI}`);
 
 

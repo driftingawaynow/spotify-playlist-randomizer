@@ -14,7 +14,6 @@ useEffect(() => {
         const { data } = await getRandomGenre();
         let genreList = data.genres;
 
-
         //pick random seed
         let randomGenre = genreList[Math.floor(Math.random()*genreList.length)];
         setGenre(randomGenre);
