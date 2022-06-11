@@ -17,11 +17,6 @@ useEffect(() => {
         //pick random seed
         let randomGenre = genreList[Math.floor(Math.random()*genreList.length)];
         setGenre(randomGenre);
-
-        //random number 1-10
-        if(Math.floor(Math.random() * 11) === 7) {
-            setGenre('CHAOS!');
-        }
         console.log("Genre: " + randomGenre);
 
         //pick a year range

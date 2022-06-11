@@ -26,9 +26,14 @@ const Profile = () => {
       {profile && (
         <>
           <h1>{"Spotify Playlist Randomizer!"}</h1>
+          <div id="container">
           <Link to="/results" >
-            <button>Generate</button>
+            <button>Genre mode</button>
           </Link>
+          <Link to="/chaos">
+            <button>Chaos mode</button>
+          </Link>
+          </div>
         </>
       )}
     </>

@@ -192,44 +192,16 @@ export const generateRandomPlaylist = (randomGenre, randomYearRange, descYearRan
 
 export const getRandomGenre = () => axios.get('/recommendations/available-genre-seeds');
 
-export const getTopArtists = () => {
-  return axios.get('/me/top/artists?limit=5');
+export const getTopArtists = (offset) => {
+  return axios.get(`/me/top/artists?limit=5&offset=${offset}`);
 }
 
-export const getTopTracks = () => {
-  return axios.get('/me/top/tracks?limit=5');
+export const getTopTracks = (offset) => {
+  return axios.get(`/me/top/tracks?limit=5&offset=${offset}`);
 }
 
-export const chaosLoop = (seed_artists, seed_genres, seed_tracks, target_popularity, target_tempo) => 
-axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&limit=20&target_popularity=${target_popularity}&target_tempo=${target_tempo}`);
-
-export const getRecommendations = (seed_artists, seed_genres, seed_tracks, target_popularity) => axios.get('/me').then(res => {
-  let userID = res.data.id;
-  console.log(userID);
-      // create playlist
-      axios.post(`/users/${userID}/playlists`, {
-          name: "CHAOS!",
-          public: false,
-          description: "FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN"
-      }).then(res => { 
-          let playlistID = res.data.id; // get playlist ID
-          //find recommendations
-          axios.get(`/recommendations?seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&target_popularity=${target_popularity}`).then(res => {
-              let tracks = res.data.tracks;
-              console.log(tracks);
-
-              let allURIs = "";
-              for (let i = 0; i < tracks.length; i++) {
-                  allURIs = allURIs + tracks[i].uri + "%2C";
-              }
-              allURIs = allURIs.slice(0, -3) //remove last comma
-              allURIs = allURIs.replace(/:/g,"%3A");
-              console.log(allURIs);
-
-              axios.post(`/playlists/${playlistID}/tracks?uris=${allURIs}`);
-          });
-      });
-    });
+export const chaosLoop = (seed_artists, seed_genres, seed_tracks, target_popularity, target_tempo, target_time_signature, market) => 
+axios.get(`/recommendations?market=${market}&limit=100&seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}&limit=20&target_popularity=${target_popularity}&target_tempo=${target_tempo}&target_time_signature=${target_time_signature}`);
 
 export const createPlaylist = (userID) => axios.post(`/users/${userID}/playlists`, {
     name: "CHAOS!",
