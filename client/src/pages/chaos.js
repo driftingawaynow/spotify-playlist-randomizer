@@ -84,7 +84,7 @@ const chaosDataLoop = async () => {
 
     console.log("GO GO GO");
     for(let i = 0; i < 100; i++) {
-        seed = Math.floor(Math.random() * (100 - 0) ) + 0
+        seed = Math.floor(Math.random() * (99 - 0) ) + 0
         const chaosData = await chaosLoop(artists, genre, tracks, pop, tempo, timeSig, market);
         console.log(chaosData);
 
