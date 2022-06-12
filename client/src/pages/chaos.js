@@ -35,9 +35,8 @@ useEffect(() => {
         const data2 = await getTopArtists(offset);
         console.log(data2);
         console.log("Length: " + (data2.data.items[0]).length);
-        //specific edge case if no data is available
         if((data2.data.items[0]).length === 0) {
-            setSeedArtists("6DA73TbGaLyHWiz8EsbDs8");
+            setSeedArtists("2PCUhxD40qlMqsKHjTZD2e");
             setArtistName("driftingaway");
         } else {
             setSeedArtists(data2.data.items[0].id);
@@ -48,7 +47,7 @@ useEffect(() => {
         const data3 = await getTopTracks(offset);
         console.log(data3);
         if((data3.data.items[0]).length === 0) {
-            setSeedTracks("3Y3w8bGa72QYjBiIgodGCK");
+            setSeedTracks("3NCg46FWgnANZc9HQHQOQR");
             setTrackName("Building an Empire")
         } else {
             setSeedTracks(data3.data.items[0].id);
