@@ -192,12 +192,12 @@ export const generateRandomPlaylist = (randomGenre, randomYearRange, descYearRan
 
 export const getRandomGenre = () => axios.get('/recommendations/available-genre-seeds');
 
-export const getTopArtists = () => {
-  return axios.get(`/me/top/artists?limit=1`);
+export const getTopArtists = (offset) => {
+  return axios.get(`/me/top/artists?limit=1&offset=${offset}`);
 }
 
-export const getTopTracks = () => {
-  return axios.get(`/me/top/tracks?limit=1`);
+export const getTopTracks = (offset) => {
+  return axios.get(`/me/top/tracks?limit=1&offset=${offset}`);
 }
 
 export const chaosLoop = (seed_artists, seed_genres, seed_tracks, target_popularity, target_tempo, target_time_signature, market) => 

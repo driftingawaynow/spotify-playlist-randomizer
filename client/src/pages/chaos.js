@@ -28,11 +28,11 @@ useEffect(() => {
         setUserID(prof.data.id);
         setMarket(prof.data.country);
 
-        const data = await getRandomGenre();
+        const data = await getRandomGenre(offset);
         console.log(data);
         setGenreList(data.data.genres);
 
-        const data2 = await getTopArtists();
+        const data2 = await getTopArtists(offset);
         console.log(data2);
         console.log("Length: " + (data2.data.items[0]).length);
         if((data2.data.items[0]).length === 0) {
@@ -44,7 +44,7 @@ useEffect(() => {
         }
         console.log(seed_artists);
 
-        const data3 = await getTopTracks();
+        const data3 = await getTopTracks(offset);
         console.log(data3);
         if((data3.data.items[0]).length === 0) {
             setSeedTracks("3NCg46FWgnANZc9HQHQOQR");
