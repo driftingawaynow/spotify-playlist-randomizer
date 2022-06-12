@@ -33,6 +33,7 @@ useEffect(() => {
         setGenreList(data.data.genres);
 
         const data2 = await getTopArtists();
+        console.log(data2);
         setSeedArtists(data2.data.items[0].id);
         setArtistName(data2.data.items[0].name);
         console.log(seed_artists);
