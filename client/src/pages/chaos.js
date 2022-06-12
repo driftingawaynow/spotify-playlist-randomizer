@@ -53,7 +53,7 @@ useEffect(() => {
         setTargetTimeSignature(timeSig);
     };
   
-    let offset = Math.floor(Math.random() * (50 - 0) ) + 0
+    let offset = Math.floor(Math.random() * (0 - 0) ) + 0
     let timeSig = timeSigs[Math.floor(Math.random() * timeSigs.length)];
     setTargetPopularity(Math.floor(Math.random() * (100 - 0) ) + 0);
     setTargetTempo(Math.floor(Math.random() * (220 - 80) ) + 80);
