@@ -9,10 +9,10 @@ import { ProgressBar } from 'react-bootstrap'
 const Chaos = () => {
 const [seed_genre, setGenre] = useState('???');
 const [genreList, setGenreList] = useState(null);
-const [seed_artists, setSeedArtists] = useState('6DA73TbGaLyHWiz8EsbDs8');
-const [artist_name, setArtistName] = useState('driftingaway');
-const [seed_tracks, setSeedTracks] = useState('3Y3w8bGa72QYjBiIgodGCK');
-const [track_name, setTrackName] = useState('Building an Empire');
+const [seed_artists, setSeedArtists] = useState("2PCUhxD40qlMqsKHjTZD2e");
+const [artist_name, setArtistName] = useState("driftingaway");
+const [seed_tracks, setSeedTracks] = useState("3NCg46FWgnANZc9HQHQOQR");
+const [track_name, setTrackName] = useState("Building an Empire");
 const [target_popularity, setTargetPopularity] = useState(50);
 const [userID, setUserID] = useState(null);
 const [trackURI, setTrackURI] = useState(null);
@@ -36,8 +36,8 @@ useEffect(() => {
         console.log(data2);
         console.log("Length: " + (data2.data.items[0]).length);
         if((data2.data.items[0]).length === 0) {
-            setSeedArtists('6DA73TbGaLyHWiz8EsbDs8');
-            setArtistName('driftingaway');
+            setSeedArtists("2PCUhxD40qlMqsKHjTZD2e");
+            setArtistName("driftingaway");
         } else {
             setSeedArtists(data2.data.items[0].id);
             setArtistName(data2.data.items[0].name);
@@ -47,8 +47,8 @@ useEffect(() => {
         const data3 = await getTopTracks();
         console.log(data3);
         if((data3.data.items[0]).length === 0) {
-            setSeedTracks('3Y3w8bGa72QYjBiIgodGCK');
-            setTrackName('Building an Empire')
+            setSeedTracks("3NCg46FWgnANZc9HQHQOQR");
+            setTrackName("Building an Empire")
         } else {
             setSeedTracks(data3.data.items[0].id);
             setTrackName(data3.data.items[0].name);
@@ -83,7 +83,7 @@ const chaosDataLoop = async () => {
     let playlistIDtemp = playlist_info.data.id;
 
     const chaosData = await chaosLoop(seed_artists, seed_genre, seed_tracks, target_popularity, target_tempo, target_time_signature, market);
-    let seed = Math.floor(Math.random() * (100 - 0) ) + 0
+    let seed = Math.floor(Math.random() * (99 - 0) ) + 0
     let genre = genreList[Math.floor(Math.random()*genreList.length)]
     let artists = chaosData.data.tracks[seed].artists[0].id
     let name = chaosData.data.tracks[seed].artists[0].name
