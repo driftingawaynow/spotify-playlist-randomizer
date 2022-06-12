@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { Login, Profile, Results, Playlist, Chaos } from './pages';
+import { Login, Main, Genre, Playlist, Chaos } from './pages';
 import './App.css';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -49,10 +49,6 @@ function App() {
           fpsLimit: 120,
           interactivity: {
             events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
               onHover: {
                 enable: true,
                 mode: "repulse",
@@ -121,9 +117,9 @@ function App() {
             <p>Logged in as {profile?.display_name}</p>
             <button className="logout" onClick={logout}>Log Out</button>
             <Routes>
-              <Route path="/" element={<Profile/>}>
+              <Route path="/" element={<Main/>}>
               </Route>
-              <Route path="/results" element={<Results/>}>
+              <Route path="/genre" element={<Genre/>}>
               </Route>
               <Route path="/playlist" element={<Playlist/>}>
               </Route>

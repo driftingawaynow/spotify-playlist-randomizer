@@ -125,6 +125,10 @@ h4 {
   z-index: 1;
 }
 
+.backButton {
+  width:60px; height:30px;
+}
+
 progress {
   vertical-align: baseline;
 }

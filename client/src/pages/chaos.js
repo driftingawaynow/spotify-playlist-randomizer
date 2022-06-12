@@ -130,7 +130,7 @@ const chaosDataLoop = async () => {
             <h4>Tempo: {target_tempo}</h4>
             <h4>Time Signature: {target_time_signature}/4</h4>
             <h1><ProgressBar animated now={progress} label={`${progress}%`}/></h1>
-            <button class="resultsButton" id="resultsButton" onClick={chaosDataLoop}>You mean the Chaos Emeralds?</button>
+            <button class="resultsButton" id="resultsButton" onClick={chaosDataLoop}>You mean the Chaos Emeralds? (begin)</button>
             <Link to="/">
                 <button class="resultsButton" id="backButton">Back</button>
             </Link>
