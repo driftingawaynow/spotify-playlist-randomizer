@@ -32,12 +32,12 @@ useEffect(() => {
         console.log(data);
         setGenreList(data.data.genres);
 
-        const data2 = await getTopArtists(offset);
+        const data2 = await getTopArtists();
         setSeedArtists(data2.data.items[0].id);
         setArtistName(data2.data.items[0].name);
         console.log(seed_artists);
 
-        const data3 = await getTopTracks(offset);
+        const data3 = await getTopTracks();
         console.log(data3);
         setSeedTracks(data3.data.items[0].id);
         setTrackName(data3.data.items[0].name);
@@ -53,7 +53,7 @@ useEffect(() => {
         setTargetTimeSignature(timeSig);
     };
   
-    let offset = Math.floor(Math.random() * (0 - 0) ) + 0
+    let offset = Math.floor(Math.random() * (50 - 0) ) + 0
     let timeSig = timeSigs[Math.floor(Math.random() * timeSigs.length)];
     setTargetPopularity(Math.floor(Math.random() * (100 - 0) ) + 0);
     setTargetTempo(Math.floor(Math.random() * (220 - 80) ) + 80);
