@@ -34,15 +34,26 @@ useEffect(() => {
 
         const data2 = await getTopArtists();
         console.log(data2);
-        setSeedArtists(data2.data.items[0].id);
-        setArtistName(data2.data.items[0].name);
+        console.log("Length: " + (data2.data.items[0]).length);
+        if((data2.data.items[0]).length === 0) {
+            setSeedArtists('6DA73TbGaLyHWiz8EsbDs8');
+            setArtistName('driftingaway');
+        } else {
+            setSeedArtists(data2.data.items[0].id);
+            setArtistName(data2.data.items[0].name);
+        }
         console.log(seed_artists);
 
         const data3 = await getTopTracks();
         console.log(data3);
-        setSeedTracks(data3.data.items[0].id);
-        setTrackName(data3.data.items[0].name);
-        setTrackURI(data3.data.items[0].uri);
+        if((data3.data.items[0]).length === 0) {
+            setSeedTracks('3Y3w8bGa72QYjBiIgodGCK');
+            setTrackName('Building an Empire')
+        } else {
+            setSeedTracks(data3.data.items[0].id);
+            setTrackName(data3.data.items[0].name);
+            setTrackURI(data3.data.items[0].uri);
+        }
         console.log(seed_tracks);
 
         //pick random seed
