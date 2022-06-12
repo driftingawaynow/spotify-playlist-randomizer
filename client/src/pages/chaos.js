@@ -9,10 +9,10 @@ import { ProgressBar } from 'react-bootstrap'
 const Chaos = () => {
 const [seed_genre, setGenre] = useState('???');
 const [genreList, setGenreList] = useState(null);
-const [seed_artists, setSeedArtists] = useState(null);
-const [artist_name, setArtistName] = useState(null);
-const [seed_tracks, setSeedTracks] = useState(null);
-const [track_name, setTrackName] = useState(null);
+const [seed_artists, setSeedArtists] = useState('6DA73TbGaLyHWiz8EsbDs8');
+const [artist_name, setArtistName] = useState('driftingaway');
+const [seed_tracks, setSeedTracks] = useState('3Y3w8bGa72QYjBiIgodGCK');
+const [track_name, setTrackName] = useState('Building an Empire');
 const [target_popularity, setTargetPopularity] = useState(50);
 const [userID, setUserID] = useState(null);
 const [trackURI, setTrackURI] = useState(null);
