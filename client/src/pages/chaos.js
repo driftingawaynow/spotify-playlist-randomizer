@@ -77,7 +77,9 @@ let timeSigs = [3, 4, 5, 6, 7];
 
 const chaosDataLoop = async () => {
     document.getElementById("resultsButton").style.visibility = "hidden";
+    document.getElementById("resultsButton").disabled = true;
     document.getElementById("backButton").style.visibility = "hidden";
+    document.getElementById("backButton").disabled = true;
     let playlist_info = await createPlaylist(userID);
     setPlaylistID(playlist_info.data.id);
     let playlistIDtemp = playlist_info.data.id;
